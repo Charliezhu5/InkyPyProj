@@ -1,6 +1,6 @@
 #!/bin/bash
 
-cd /home/pi/Pimoroni
+cd /home/pi/InkyPyProj
 
 export FLASK_APP=helloServer.py
 
