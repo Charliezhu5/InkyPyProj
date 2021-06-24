@@ -12,10 +12,10 @@ def clean():
     os.system("sudo python3 clean.py")
     return 'Cleaned!'
 
-@app.route('/logo')
-def show_logo():
-    os.system("sudo python3 logo.py")
-    return 'Showing logo!'
+@app.route('/pic/<logo>')
+def show_logo(logo):
+    os.system(f'sudo python3 {logo}.py')
+    return 'Showing Picture!'
 
 @app.route('/namebadge/<name>')
 def namebadge(name):
