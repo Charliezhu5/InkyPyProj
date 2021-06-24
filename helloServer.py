@@ -12,6 +12,11 @@ app = Flask(__name__)
 def hello_world():
     return 'Hello, World!'
 
+@app.route('/poweroff')
+def poweroff():
+    os.system("sudo poweroff")
+    return 'Bye!'
+
 @app.route('/clean')
 def clean():
     os.system("sudo python3 clean.py")

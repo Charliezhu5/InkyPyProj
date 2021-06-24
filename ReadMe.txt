@@ -18,10 +18,11 @@ Quick Setup:
 	2. Find ssid and password, change them to your home netword setting, the rpi0 only connects to 2.4GHz wifi.
 	3. Plug SD card back to rpi0, power it on by pluging in usb cable.
 	4. After a while, check your router's page, and look for a device named RaspberryPi, note its ip address, like 192.168.x.x(remember this address, it is important)
-	5. Open up PowerShell(windows) or Terminal(Mac) then ssh into the rpi0, username and password below. & ssh pi@192.168.x.x
-	6. Once logged into rpi0 as user pi, run this command $ sudo ./startServer.sh
-	7. Now your rpi0 will be configurable by http request, please see usage instruction for details.
+	5. The assembly should be up and running 1 minute after booting.
 
+Power Off:
+	1. To poweroff, simply enter URL in browser address bar 192.168.x.x/poweroff.
+	2. When geen LED disapears, remove power cable.
 
 Updates:
 	1. The software and python files are from this Git repo, https://github.com/Charliezhu5/InkyPyProj. All changes will be updated on the repo.
