@@ -18,18 +18,18 @@ Quick Setup:
 	3. Plug SD card back to rpi0, power it on by pluging in usb cable.
 	4. After a while, check your router's page, and look for a device named RaspberryPi, note its ip address, like 192.168.x.x(remember this address, it is important)
 	5. Open up PowerShell(windows) or Terminal(Mac) then ssh into the rpi0, username and password below. & ssh pi@192.168.x.x
-	6. Once logged into rpi0 as user pi, run this command $ InkyPyProj/startServer.sh
+	6. Once logged into rpi0 as user pi, run this command $ sudo ./startServer.sh
 	7. Now your rpi0 will be configurable by http request, please see usage instruction for details.
 
 Updates:
 	1. The software and python files are from this Git repo, https://github.com/Charliezhu5/InkyPyProj. All changes will be updated on the repo.
-	2. In the rpi0, I put a shell command to update from the repo, you can run $ sudo /home/pi/InkyPyProj/update.sh
+	2. In the rpi0, I put a shell command to update from the repo, you can run $ sudo ./update.sh
 	3. DO NOT make changes to local files, it will cause git conflict to prevent you from future updates. I haven't setup it in a proper way yet.
 	4. If you want to make changes to the files and controll the Ip in your own way, you can fork or create your own repo.
 
 Usage Instruction:
 	At this point after you finished Quick Setup, the http server will be running, you can use any browser to send requests to the assembly by entering in address bar.
-	a. enter address 192.168.x.x:5000/logo will tell the Ip to show a deault image. It takes about 10 s to finish.
+	a. enter address 192.168.x.x:5000/pic/DoubleHappiness will tell the Ip to show a deault image. It takes about 10 s to finish.
 
 
 Full Setting Up(Optional):
@@ -61,5 +61,5 @@ File path:
 Routes:
 	1. "/" main route, return Hello world message.
 	2. "/clean" start a clean screen cycle to clear Ip of ghost image. Takes 30s. Return success message.
-	3. "/logo" set Ip to display default logo image. Takes 20s. Return success message.
+	3. "/pic/nameOfPicture" set Ip to display a PNG image, and the name of the PNG file is nameOfPicture. Takes 20s. Return success message.
 	4. "/namebadge/{Name}" change {Name} to whatever you like, and the Ip will display that name as a name badge. Takes 10s, and return success message.
