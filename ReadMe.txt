@@ -18,8 +18,14 @@ Quick Setup:
 	3. Plug SD card back to rpi0, power it on by pluging in usb cable.
 	4. After a while, check your router's page, and look for a device named RaspberryPi, note its ip address, like 192.168.x.x(remember this address, it is important)
 	5. Open up PowerShell(windows) or Terminal(Mac) then ssh into the rpi0, username and password below. & ssh pi@192.168.x.x
-	6. Once logged into rpi0 as user pi, run this command $ Pimoroni/startServer.sh
+	6. Once logged into rpi0 as user pi, run this command $ InkyPyProj/startServer.sh
 	7. Now your rpi0 will be configurable by http request, please see usage instruction for details.
+
+Updates:
+	1. The software and python files are from this Git repo, https://github.com/Charliezhu5/InkyPyProj. All changes will be updated on the repo.
+	2. In the rpi0, I put a shell command to update from the repo, you can run $ sudo /home/pi/InkyPyProj/update.sh
+	3. DO NOT make changes to local files, it will cause git conflict to prevent you from future updates. I haven't setup it in a proper way yet.
+	4. If you want to make changes to the files and controll the Ip in your own way, you can fork or create your own repo.
 
 Usage Instruction:
 	At this point after you finished Quick Setup, the http server will be running, you can use any browser to send requests to the assembly by entering in address bar.
