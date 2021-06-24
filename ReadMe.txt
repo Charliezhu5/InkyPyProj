@@ -11,6 +11,7 @@ How does it work?
 TL;DR
 	rpi0 eats usb power, rpi0 spit image to GPIO. Ip take spits from GPIO and shows funny picture. Python tells rpi0 how when what to spit.
 
+
 Quick Setup:
 	Although ideally, the assembly will be plug-n-play, but you still need to set it up to function properly. Please follow these steps:
 	1. Plug SD card into your computer, in the boot drive, there is a wpa_supplicant.conf file, open it with any text editor.
@@ -21,25 +22,31 @@ Quick Setup:
 	6. Once logged into rpi0 as user pi, run this command $ sudo ./startServer.sh
 	7. Now your rpi0 will be configurable by http request, please see usage instruction for details.
 
+
 Updates:
 	1. The software and python files are from this Git repo, https://github.com/Charliezhu5/InkyPyProj. All changes will be updated on the repo.
 	2. In the rpi0, I put a shell command to update from the repo, you can run $ sudo ./update.sh
 	3. DO NOT make changes to local files, it will cause git conflict to prevent you from future updates. I haven't setup it in a proper way yet.
 	4. If you want to make changes to the files and controll the Ip in your own way, you can fork or create your own repo.
 
+
 Usage Instruction:
 	At this point after you finished Quick Setup, the http server will be running, you can use any browser to send requests to the assembly by entering in address bar.
-	a. enter address 192.168.x.x:5000/pic/DoubleHappiness will tell the Ip to show a deault image. It takes about 10 s to finish.
+	The rpi0 should be already connected to the wifi, you can check this by using ping command. And since the http server is already started, you can enter address 192.168.x.x to check if there is a message saying hello world.
+	If everything works so far, you should be able to test following URLs:
+		a. enter address 192.168.x.x:5000/pic/DoubleHappiness2 will tell the Ip to show a deault image. It takes about 10 s to finish.
+			i. you can try change DoubleHappiness2 to InkypHAT-212x104 that is the logo of Ip.
+		b. enter address 192.168.x.x:5000/clean will clear Ip of any displayed image, it's like a reset process. It takes about 15s to finish.
+		c. enter address 192.168.x.x:5000/namebadge/Charlie will make Ip display a namebadge with "Charlie" on it, you can change it to your name of course.
 
 
-Full Setting Up(Optional):
+
+Full Setup(Optional):
 	The assembly is already setup and go, all files are stored in the attached SD card. Should you need to setup everything ground up again, please follow these steps:
 	1. Get a SD card, download Raspberry Pi Imager from Raspberry website.
 	2. Use the Imager, select Raspbian OS Lite version, and prepare the SD card.
-	3. Setup headless start following these steps:
-		a.
-		b.
-		c.
+	3. Setup headless start following this link:
+		https://www.raspberrypi.org/documentation/configuration/wireless/headless.md
 	4. SSH into the rpi0, take control.
 	5. Install important Inky library, you can run the bash file from their website by running this command & curl https://get.pimoroni.com/inky | bash
 	6. After selecting yes and few minutes, the hardware part setup is done, and you should be able to follow the tutorial from Pimoroni https://learn.pimoroni.com/tutorial/sandyj/getting-started-with-inky-phat
@@ -47,18 +54,22 @@ Full Setting Up(Optional):
 	8. Git clone from this repo for latest files.
 	9. ??? it's yours now.
 
-Important installed packages:
+
+Important Installed Packages:
 	1. Inky, the python library for pi zero to control inky display.
 	2. Flask, a python library to handle Http requests for configuration on the go.
 
-Linux user:
+
+Linux User:
 	1. Username(super user): pi
 	   paswd: SuperStrongPassword
 
-File path:
-	1. All python codes are here: /home/pi/Pimoroni
 
-Routes:
+File Path:
+	1. All python codes are here: /home/pi
+
+
+HTTP Requests Routes:
 	1. "/" main route, return Hello world message.
 	2. "/clean" start a clean screen cycle to clear Ip of ghost image. Takes 30s. Return success message.
 	3. "/pic/nameOfPicture" set Ip to display a PNG image, and the name of the PNG file is nameOfPicture. Takes 20s. Return success message.

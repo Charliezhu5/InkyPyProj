@@ -1,6 +1,11 @@
 from flask import Flask
 import os
 
+try:
+    os.system("sudo python3 logo.py")
+except:
+    print("Unexpected error at displaying logo.")
+
 app = Flask(__name__)
 
 @app.route('/')
